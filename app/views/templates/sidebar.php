@@ -51,14 +51,14 @@
             </ul> -->
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?= base_url; ?>/himpunan" class="nav-link">
               <i class="nav-icon fas ion-person"></i>
               <p>
                 Himpunan
-                <i class="right fas fa-angle-left"></i>
+                <!-- <i class="right fas fa-angle-left"></i> -->
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <!-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -77,7 +77,30 @@
                   <p>Hapus Dosen</p>
                 </a>
               </li>
-            </ul>
+            </ul> -->
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url; ?>/peserta" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Peserta
+                <!-- <i class="fas fa-angle-left right"></i> -->
+              </p>
+            </a>
+            <!-- <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="datamaster/user/" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List User</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/UI/icons.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tambah User</p>
+                </a>
+              </li>
+            </ul> -->
           </li>
           <li class="nav-item">
             <a href="<?= base_url; ?>/user" class="nav-link">

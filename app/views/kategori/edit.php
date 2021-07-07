@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Halaman Kategori</h1>
+            <h1>Halaman Himpunan</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -24,8 +24,8 @@
                     <input type="hidden" name="id" value="<?= $data['kategori']['id']; ?>">
                 <div class="card-body">
                   <div class="form-group">
-                    <label >Nama Kategori</label>
-                    <input type="text" class="form-control" placeholder="masukkan kategori..." name="nama_kategori" value="<?= $data['kategori']['nama_kategori']; ?>">
+                    <label >Nama Himpunan</label>
+                    <input type="text" class="form-control" placeholder="masukkan himpunan..." name="nama_kategori" value="<?= $data['kategori']['nama_kategori']; ?>">
                   </div>
                 </div>
                 <!-- /.card-body -->

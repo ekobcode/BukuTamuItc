@@ -19,11 +19,17 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" action="<?= base_url; ?>/kategori/simpankategori" method="POST" enctype="multipart/form-data">
+              <form role="form" action="<?= base_url; ?>/himpunan/updateHimpunan" method="POST" enctype="multipart/form-data">
+
+                    <input type="hidden" name="id" value="<?= $data['himpunan']['id']; ?>">
                 <div class="card-body">
                   <div class="form-group">
                     <label >Nama Himpunan</label>
-                    <input type="text" class="form-control" placeholder="masukkan himpunan..." name="nama_kategori">
+                    <input type="text" class="form-control" placeholder="masukkan himpunan..." name="nama_himpunan" value="<?= $data['himpunan']['nama_himpunan']; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label >Nama Universitas</label>
+                    <input type="text" class="form-control" placeholder="masukkan universitas..." name="nama_universitas" value="<?= $data['himpunan']['nama_universitas']; ?>">
                   </div>
                 </div>
                 <!-- /.card-body -->
