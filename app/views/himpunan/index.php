@@ -19,9 +19,8 @@
         Flasher::Message();
       ?>
     </div>
-  </div>
+    </div>
       <!-- Default box -->
-
       <div class="card">
         <div class="card-header">
           <h3 class="card-title"><?= $data['title'] ?></h3> <a href="<?= base_url; ?>/himpunan/tambah" class="btn float-right btn-xs btn btn-primary">Tambah Himpunan</a>
@@ -29,32 +28,20 @@
         <div class="card-body">
         
       <form action="<?= base_url; ?>/himpunan/cari" method="post">
-      <!-- <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 300px;">
-                  <input type="text" class="form-control" placeholder="" name="key" >
-                    <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit">Cari Data</button>
-                    <a class="btn btn-outline-danger" href="<?= base_url; ?>/user" >Reset</a>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-
-
-    <div class="card-tools">
-      <div class="row mb-3">
-          <div class="col-lg-6">
-            <div class="input-group">
-            <div class="input-group input-group-sm" style="width: 300px;">
-            <input type="text" class="form-control" placeholder="" name="key" >
-            <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit">Cari Data</button>
-            <a class="btn btn-outline-danger" href="<?= base_url; ?>/user" >Reset</a>
-          </div>
+        <div class="card-tools">
+          <div class="row mb-3">
+              <div class="col-lg-6">
+                <div class="input-group">
+                <div class="input-group input-group-sm" style="width: 300px;">
+                <input type="text" class="form-control" placeholder="" name="key" >
+                <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Cari Data</button>
+                <a class="btn btn-outline-danger" href="<?= base_url; ?>/himpunan" >Reset</a>
+              </div>
+            </div>
         </div>
+      </div>
     </div>
-  </div>
-</div>
     </form>
           <table class="table table-bordered">
                   <thead>                  

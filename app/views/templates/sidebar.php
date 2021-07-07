@@ -106,7 +106,7 @@
             <a href="<?= base_url; ?>/user" class="nav-link">
               <i class="nav-icon fas fa-user-circle"></i>
               <p>
-                User
+                Admin
                 <!-- <i class="fas fa-angle-left right"></i> -->
               </p>
             </a>

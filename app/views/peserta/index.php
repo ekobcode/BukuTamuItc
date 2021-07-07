@@ -24,20 +24,23 @@
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><?= $data['title'] ?></h3> <div class="btn-group float-right"><a href="<?= base_url; ?>/buku/tambah" class="btn float-right btn-xs btn btn-primary">Tambah Buku</a><a href="<?= base_url; ?>/buku/laporan" class="btn float-right btn-xs btn btn-info">Laporan Buku</a><a href="<?= base_url; ?>/peserta/lihatlaporan" class="btn float-right btn-xs btn btn-warning">Lihat Laporan Peserta</a></div>
+          <h3 class="card-title"><?= $data['title'] ?></h3> <div class="btn-group float-right"><a href="<?= base_url; ?>/peserta/tambah" class="btn float-right btn-xs btn btn-primary">Tambah Peserta</a><a href="<?= base_url; ?>/peserta/laporan" class="btn float-right btn-xs btn btn-info">Laporan Peserta</a><a href="<?= base_url; ?>/peserta/lihatlaporan" class="btn float-right btn-xs btn btn-warning">Lihat Laporan Peserta</a></div>
         </div>
         <div class="card-body">
         
       <form action="<?= base_url; ?>/peserta/cari" method="post">
- <div class="row mb-3">
-    <div class="col-lg-6">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="" name="key" >
-    <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="submit">Cari Data</button>
-          <a class="btn btn-outline-danger" href="<?= base_url; ?>/buku" >Reset</a>
+      <div class="card-tools">
+      <div class="row mb-3">
+          <div class="col-lg-6">
+            <div class="input-group">
+            <div class="input-group input-group-sm" style="width: 300px;">
+            <input type="text" class="form-control" placeholder="" name="key" >
+            <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit">Cari Data</button>
+            <a class="btn btn-outline-danger" href="<?= base_url; ?>/user" >Reset</a>
+          </div>
+        </div>
     </div>
-  </div>
 
   </div>
 </div>
@@ -46,12 +49,12 @@
                   <thead>                  
                     <tr>
                       <th style="width: 10px">No</th>
-                      <th>Judul</th>
-                      <th>Penerbit</th>
-                      <th>Pengarang</th>
-                      <th>Tahun</th>
-                      <th>Kategori</th>
-                      <th>Harga</th>
+                      <th>Nama</th>
+                      <th>Telepon</th>
+                      <th>Email</th>
+                      <th>Himpunan</th>
+
+                      <th>Status</th>
                       <th style="width: 150px">Action</th>
                     </tr>
                   </thead>
@@ -60,13 +63,11 @@
                     <?php foreach ($data['peserta'] as $row) :?>
                     <tr>
                       <td><?= $no; ?></td>
-                      <td><?= $row['na'];?></td>
                       <td><?= $row['nama'];?></td>
                       <td><?= $row['hp'];?></td>
                       <td><?= $row['email'];?></td>
                       <td><div class="badge badge-warning"><?= $row['nama_himpunan'];?></div></td>
-                      <td><div class="badge badge-warning"><?= $row['nama_universitas'];?></div></td>
-                      <td><?= $row['harga'];?></td>
+                      <td><?= $row['status_id'];?></div></td>
                       <td>
                         <a href="<?= base_url; ?>/peserta/edit/<?= $row['id'] ?>" class="badge badge-info">Edit</a> <a href="<?= base_url; ?>/peserta/hapus/<?= $row['id'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
                       </td>
@@ -76,9 +77,9 @@
                 </table>
         </div>
         <!-- /.card-body -->
-        <div class="card-footer">
+        <!-- <div class="card-footer">
           Footer
-        </div>
+        </div> -->
         <!-- /.card-footer-->
       </div>
       <!-- /.card -->

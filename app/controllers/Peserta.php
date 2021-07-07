@@ -130,4 +130,16 @@ class Peserta extends Controller {
 			exit;	
 		}
 	}
+
+	public function pembayaran($id){
+		if( $this->model('PesertaModel')->pembayaranPeserta($id) > 0 ) {
+			Flasher::setMessage('Berhasil','dibayar','success');
+			header('location: '. base_url . '/peserta');
+			exit;			
+		}else{
+			Flasher::setMessage('Gagal','dibayar','danger');
+			header('location: '. base_url . '/peserta');
+			exit;	
+		}
+	}
 }

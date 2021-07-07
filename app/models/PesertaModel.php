@@ -25,14 +25,12 @@ class PesertaModel {
 
 	public function tambahPeserta($data)
 	{
-		$query = "INSERT INTO peserta (judul, penerbit, pengarang, tahun, kategori_id, harga) VALUES(:judul, :penerbit, :pengarang, :tahun, :kategori_id, :harga)";
+		$query = "INSERT INTO peserta (nama, hp, email, himpunan_id, status) VALUES(:nama, :hp, :email, :himpunan_id, 'Pendding')";
 		$this->db->query($query);
-		$this->db->bind('judul', $data['judul']);
-		$this->db->bind('penerbit', $data['penerbit']);
-		$this->db->bind('pengarang', $data['pengarang']);
-		$this->db->bind('tahun', $data['tahun']);
-		$this->db->bind('kategori_id', $data['kategori_id']);
-		$this->db->bind('harga', $data['harga']);
+		$this->db->bind('nama', $data['nama']);
+		$this->db->bind('hp', $data['hp']);
+		$this->db->bind('email', $data['email']);
+		$this->db->bind('himpunan_id', $data['himpunan_id']);
 		$this->db->execute();
 
 		return $this->db->rowCount();
@@ -40,15 +38,14 @@ class PesertaModel {
 
 	public function updateDataPeserta($data)
 	{
-		$query = "UPDATE peserta SET judul=:judul, penerbit=:penerbit, pengarang=:pengarang, pengarang=:pengarang, tahun=:tahun, kategori_id=:kategori_id, harga=:harga WHERE id=:id";
+		$query = "UPDATE peserta SET nama=:nama, hp=:hp, email=:email, himpunan_id=:himpunan_id, status_id=:status_id WHERE id=:id";
 		$this->db->query($query);
 		$this->db->bind('id',$data['id']);
-		$this->db->bind('judul', $data['judul']);
-		$this->db->bind('penerbit', $data['penerbit']);
-		$this->db->bind('pengarang', $data['pengarang']);
-		$this->db->bind('tahun', $data['tahun']);
-		$this->db->bind('kategori_id', $data['kategori_id']);
-		$this->db->bind('harga', $data['harga']);
+		$this->db->bind('nama', $data['nama']);
+		$this->db->bind('hp', $data['hp']);
+		$this->db->bind('email', $data['email']);
+		$this->db->bind('himpunan_id', $data['himpunan_id']);
+		$this->db->bind('status_id', $data['status_id']);
 		$this->db->execute();
 
 		return $this->db->rowCount();
@@ -69,5 +66,15 @@ class PesertaModel {
 		$this->db->query("SELECT * FROM " . $this->table . " WHERE judul LIKE :key");
 		$this->db->bind('key',"%$key%");
 		return $this->db->resultSet();
+	}
+
+	public function pembayaranPeserta($data)
+	{
+		$query = "UPDATE peserta SET status=:status WHERE id=:id";
+		$this->db->query($query);
+		$this->db->bind('id',$data['id']);
+		$this->db->bind('status', $data['status']);
+		$this->db->execute();
+		return $this->db->rowCount();
 	}
 }

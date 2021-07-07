@@ -11,7 +11,7 @@ class User extends Controller {
 	} 
 	public function index()
 	{
-		$data['title'] = 'Data User';
+		$data['title'] = 'Data Admin';
 		$data['user'] = $this->model('UserModel')->getAllUser();
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
@@ -20,7 +20,7 @@ class User extends Controller {
 	}
 	public function cari()
 	{
-		$data['title'] = 'Data User';
+		$data['title'] = 'Data Admin';
 		$data['user'] = $this->model('UserModel')->cariUser();
 		$data['key'] = $_POST['key'];
 		$this->view('templates/header', $data);
@@ -31,7 +31,7 @@ class User extends Controller {
 
 	public function edit($id){
 
-		$data['title'] = 'Edit User';
+		$data['title'] = 'Edit Admin';
 		$data['user'] = $this->model('UserModel')->getUserById($id);
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
@@ -40,7 +40,7 @@ class User extends Controller {
 	}
 
 	public function tambah(){
-		$data['title'] = 'Tambah User';		
+		$data['title'] = 'Tambah Admin';		
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
 		$this->view('user/create', $data);
