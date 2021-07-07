@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2021 at 08:16 AM
+-- Generation Time: Jul 07, 2021 at 12:41 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -62,7 +62,8 @@ CREATE TABLE `himpunan` (
 --
 
 INSERT INTO `himpunan` (`id`, `nama_himpunan`, `nama_universitas`) VALUES
-(4, 'Keluarga Besar Mahasiswa', 'Universitas Pamulang');
+(4, 'Keluarga Besar Mahasiswa', 'Universitas Pamulang'),
+(5, 'Komite Mahasiswa', 'Universitas Gunadarma');
 
 -- --------------------------------------------------------
 
@@ -131,18 +132,46 @@ INSERT INTO `kategori` (`id`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pembayaran`
+--
+
+CREATE TABLE `pembayaran` (
+  `id` int(25) NOT NULL,
+  `status` varchar(75) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id`, `status`) VALUES
+(1, '<div class=\"badge badge-warning\">Failed</div>'),
+(2, '<div class=\"badge badge-warning\">Pendding</div>'),
+(3, '<div class=\"badge badge-success\">Paid</div>');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `peserta`
 --
 
 CREATE TABLE `peserta` (
   `id` int(25) NOT NULL,
-  `nama` varchar(75) NOT NULL,
-  `hp` varchar(75) NOT NULL,
-  `email` varchar(75) NOT NULL,
-  `himpunan_id` int(11) NOT NULL,
-  `universitas_id` int(11) NOT NULL,
-  `status` tinyint(1) NOT NULL
+  `nama` varchar(75) DEFAULT NULL,
+  `hp` varchar(75) DEFAULT NULL,
+  `email` varchar(75) DEFAULT NULL,
+  `himpunan_id` int(11) DEFAULT NULL,
+  `status_id` varchar(75) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `peserta`
+--
+
+INSERT INTO `peserta` (`id`, `nama`, `hp`, `email`, `himpunan_id`, `status_id`) VALUES
+(1, 'Eko Budiarto', '0823227287615', 'eko@gmail.com', 4, '0'),
+(4, 'Anggi Muhammad', '+6282322728715', 'anggi@gmail.com', 5, NULL),
+(8, 'Eko Budiarto', '+6282322728715', 'admin@admin.com', 5, '<div class=');
 
 -- --------------------------------------------------------
 
@@ -189,12 +218,18 @@ ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `peserta`
 --
 ALTER TABLE `peserta`
   ADD PRIMARY KEY (`id`),
   ADD KEY `himpunan_res` (`himpunan_id`),
-  ADD KEY `universitas_res` (`universitas_id`);
+  ADD KEY `status_res` (`status_id`);
 
 --
 -- Indexes for table `user`
@@ -216,7 +251,7 @@ ALTER TABLE `buku`
 -- AUTO_INCREMENT for table `himpunan`
 --
 ALTER TABLE `himpunan`
-  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -225,10 +260,16 @@ ALTER TABLE `kategori`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
+-- AUTO_INCREMENT for table `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `peserta`
 --
 ALTER TABLE `peserta`
-  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -244,8 +285,7 @@ ALTER TABLE `user`
 -- Constraints for table `peserta`
 --
 ALTER TABLE `peserta`
-  ADD CONSTRAINT `himpunan_res` FOREIGN KEY (`himpunan_id`) REFERENCES `himpunan` (`id`),
-  ADD CONSTRAINT `universitas_res` FOREIGN KEY (`universitas_id`) REFERENCES `himpunan` (`id`);
+  ADD CONSTRAINT `himpunan_res` FOREIGN KEY (`himpunan_id`) REFERENCES `himpunan` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
